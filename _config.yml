@@ -11,8 +11,8 @@ theme                    : "minimal-mistakes-jekyll"
 locale                   : "en"
 title                    : "dev_MM"
 title_separator          : "-"
-name                     : "Your Name"
-description              : "Minimal Mistakes theme test."
+name                     : "杨恩赫"
+description              : "杨恩赫的博客模板测试."
 url                      : # the base hostname & protocol for your site e.g. "https://mmistakes.github.io"
 baseurl                  : "/test"
 repository               : # GitHub username/repo-name e.g. "mmistakes/minimal-mistakes"
@@ -32,7 +32,7 @@ comments:
     colorscheme          : # "light" (default), "dark"
 staticman:
   allowedFields          : ['name', 'email', 'url', 'message']
-  branch                 : # "master", "gh-pages"
+  branch                 : "master"
   commitMessage          : "New comment."
   filename               : comment-{@timestamp}
   format                 : "yml"
