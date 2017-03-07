@@ -15,7 +15,7 @@ description              : "程序员小栈."
 url                      : # the base hostname & protocol for your site e.g. "https://mmistakes.github.io"
 baseurl                  : # the subpath of your site, e.g. "/blog"
 repository               : # GitHub username/repo-name e.g. "mmistakes/minimal-mistakes"
-teaser                   : "/assets/images/fallback_684x432.jpg" # path of fallback teaser image, e.g. "/assets/images/500x300.png"
+teaser                   : # path of fallback teaser image, e.g. "/assets/images/500x300.png"
 # breadcrumbs            : false # true, false (default)
 words_per_minute         : 200
 comments:
@@ -79,7 +79,7 @@ analytics:
 # Site Author
 author:
   name             : &zhName "杨恩赫"
-  avatar           : "/assets/images/author/author_700x611.jpg" # path of avatar image, e.g. "/assets/images/bio-photo.jpg"
+  avatar           : "/assets/images/author/author.jpg" # path of avatar image, e.g. "/assets/images/bio-photo.jpg"
   bio              : "一个刚开始有理想的Android程序员"
   location         : "中国 北京"
   email            : "eliyetyang@gmail.com"
