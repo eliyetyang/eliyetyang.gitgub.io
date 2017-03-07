@@ -2,7 +2,7 @@
 main:
   - title: "Quick-Start Guide"
     url: https://mmistakes.github.io/minimal-mistakes/docs/quick-start-guide/
-  - title: "mainTitleTest"
+  - title: "first-markdown"
     url: /_docs/first-markdown/
   # - title: "About"
   #   url: https://mmistakes.github.io/minimal-mistakes/about/
