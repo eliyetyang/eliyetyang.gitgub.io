@@ -1,6 +1,6 @@
 ---
-permalink: /first-markdown/
-title: "First markdown"
+permalink: /about/
+title: "about"
 ---
 
 
