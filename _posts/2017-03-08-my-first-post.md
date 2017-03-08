@@ -1,6 +1,5 @@
 ---
-permalink: /about/
-title: "about"
+title: "关于markdown #的测试"
 ---
 
 
