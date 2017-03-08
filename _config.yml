@@ -112,7 +112,6 @@ author:
 include:
   - .htaccess
   - _pages
-  - _architecture
 exclude:
   - "*.sublime-project"
   - "*.sublime-workspace"
@@ -264,7 +263,7 @@ defaults:
   # _architecture
   - scope:
       path: ""
-      type: architecture
+      type: architectures
     values:
       layout: single
       author_profile: ture
