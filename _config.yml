@@ -80,7 +80,7 @@ analytics:
 author:
   name             : &zhName "杨恩赫"
   avatar           : "/assets/images/author/author.jpg" # path of avatar image, e.g. "/assets/images/bio-photo.jpg"
-  bio              : "一个刚开始有理想的Android程序员"
+  bio              : "一个刚开始有理想的Android程序员与他正在建设的博客～"
   location         : "中国 北京"
   email            : "eliyetyang@gmail.com"
   uri              :

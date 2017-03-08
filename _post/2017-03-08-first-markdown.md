@@ -1,3 +1,9 @@
+---
+permalink: /first-markdown/
+title: "First markdown"
+---
+
+
 # 我的第一个markdown
 严格说之前用过，但并没有仔细研究，
 这次自己建立git blog正好写下学习过程，
