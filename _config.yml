@@ -263,7 +263,7 @@ defaults:
       author_profile: true
   # _architecture
   - scope:
-      path: "posts"
+      path: ""
       type: architecture
     values:
       layout: single
