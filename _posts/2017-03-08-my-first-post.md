@@ -1,5 +1,10 @@
 ---
 title: "关于markdown #的测试"
+categories:
+  - markdown
+tab:
+  - "#"
+  
 ---
 
 

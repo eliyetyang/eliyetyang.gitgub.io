@@ -4,6 +4,7 @@ categories:
   - architecture
 tab:
   - design
+  
 ---
 
 关于设计模式的基本原则，由于鄙人用java开发，所以以下都是在以java的角度进行的理解。
