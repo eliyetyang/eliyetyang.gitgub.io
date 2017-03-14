@@ -28,6 +28,60 @@ tab:
 这时其他两个功能就是多余的，而且我设计洗衣机这个类的时候，是全自动，浸泡洗衣甩干一条龙服务，我只能对原来的代码进行大规模的修改，并把浸泡这一功能拿出来，
 单独定一个类。这是这一类功能就进行了进一步的细化————浸泡这一类职能。
 </p>
+
+```java
+package com.eliyet.yang.code.blog.blogsimplecode;
+
+import android.util.Log;
+
+/**
+ * Created by eliyetyang on 17-3-14.
+ * 洗衣机类
+ */
+
+public class Washer {
+    private String mTagAction = "action";
+    private Soak mSoak;
+
+    public Washer(Soak soak) {
+        this.mSoak = soak;
+    }
+
+    public Washer() {
+        mSoak = new Soak();
+    }
+
+    public void soak() {
+        mSoak.soak();
+    }
+
+    public void wash() {
+        Log.i(mTagAction,"washing");
+    }
+
+    public void spinDry() {
+        Log.i(mTagAction, "spin-drying");
+    }
+}
+```
+
+```java
+package com.eliyet.yang.code.blog.blogsimplecode;
+
+import android.util.Log;
+
+/**
+ * Created by eliyetyang on 17-3-14.
+ * 浸泡类
+ */
+
+public class Soak {
+    public void soak() {
+        Log.i("action","soaking");
+    }
+}
+
+```
 <p>
 这两种分类方式都没有错，只是粒度不同，我们不能无限制的细分职能，粒度过小，会让类的种类繁多，使软件复杂花并陷入过渡设计之中。
 在进行设计的时候，要根据实际项目情况，合理的对项目粒度进行划分，避免过的的设计让软件过分的复杂，而如何划分就凭设计者的经验了。
@@ -76,3 +130,109 @@ tab:
 定义默认实现方法甩干，拥有一个成员变量浸泡，使用该变量进行浸泡功能。分别创建默认洗衣机类与衣领特别处理洗衣机类，
 继承洗衣机基类，分别实现默认洗衣方法和衣领特殊处理洗衣方法。好的现在即能洗普通的衣服又能洗衬衫了～
 </p>
+
+```java
+package com.eliyet.yang.code.blog.blogsimplecode;
+
+import android.util.Log;
+
+import static com.eliyet.yang.code.blog.blogsimplecode.Constant.LOG_TAG_ACTION;
+
+/**
+ * Created by eliyetyang on 17-3-14.
+ * 抽象的洗衣机基类
+ */
+
+public abstract class ABaseWasher {
+    private Soak mSoak;
+
+    public ABaseWasher(Soak soak) {
+        this.mSoak = soak;
+    }
+
+    public ABaseWasher() {
+        mSoak = new Soak();
+    }
+
+    public void soak() {
+        mSoak.soak();
+    }
+
+    public abstract void wash() ;
+
+    public void spinDry() {
+        Log.i(LOG_TAG_ACTION, "spin-drying");
+    }
+}
+```
+
+```java
+package com.eliyet.yang.code.blog.blogsimplecode;
+
+/**
+ * Created by eliyetyang on 17-3-14.
+ */
+
+public class Constant {
+    public static final String LOG_TAG_ACTION = "action";
+}
+```
+
+```java
+package com.eliyet.yang.code.blog.blogsimplecode;
+
+import android.util.Log;
+
+import static com.eliyet.yang.code.blog.blogsimplecode.Constant.LOG_TAG_ACTION;
+
+/**
+ * Created by eliyetyang on 17-3-14.
+ */
+
+public class DefaultWasher extends ABaseWasher {
+
+    @Override
+    public void wash() {
+        Log.i(LOG_TAG_ACTION, "普通的衣服我們普通的洗～");
+    }
+}
+```
+
+```java
+package com.eliyet.yang.code.blog.blogsimplecode;
+
+import android.util.Log;
+
+import static com.eliyet.yang.code.blog.blogsimplecode.Constant.LOG_TAG_ACTION;
+
+/**
+ * Created by eliyetyang on 17-3-14.
+ */
+
+public class ShirtWasher extends ABaseWasher {
+
+    @Override
+    public void wash() {
+        Log.i(LOG_TAG_ACTION, "特殊的衣服我們特殊的洗。");
+    }
+}
+```
+
+```java
+package com.eliyet.yang.code.blog.blogsimplecode;
+
+import android.util.Log;
+
+import static com.eliyet.yang.code.blog.blogsimplecode.Constant.LOG_TAG_ACTION;
+
+/**
+ * Created by eliyetyang on 17-3-14.
+ * 浸泡类
+ */
+
+public class Soak {
+    public void soak() {
+        Log.i(LOG_TAG_ACTION,"soaking");
+    }
+}
+```

@@ -32,6 +32,25 @@ tab:
 需要烘干的，就单独调用，这样在北方使用烘干洗衣机也没有什么太大的问题了，老铁没毛病，双击给自己送个666～。
 </p>
 
+```java
+package com.eliyet.yang.code.blog.blogsimplecode;
+
+import android.util.Log;
+
+import static com.eliyet.yang.code.blog.blogsimplecode.Constant.LOG_TAG_ACTION;
+
+/**
+ * Created by eliyetyang on 17-3-14.
+ */
+
+public class DryWasher extends DefaultWasher{
+
+    public void drying() {
+        Log.i(LOG_TAG_ACTION, "单独的烘干功能。");
+    }
+}
+
+```
 ### 四 依赖倒置原则
 
 <p>
@@ -71,4 +90,111 @@ tab:
 从这里指定外置架的示例。然后我们在增加一个外接设备项目，这里实现外置架接口，创建一个默认的矩形外置架。
 这样我们的洗衣机又变得更加强大了～趁这个机会可以推出含有矩形外置架的A套餐，哇哈哈哈哈～～～
 </p>
+
+```java
+package com.eliyet.yang.code.blog.blogsimplecode;
+
+/**
+ * Created by eliyetyang on 17-3-14.
+ * 外置架接口
+ */
+
+public interface IExternalFrame {
+    void lock();
+
+    void move();
+
+    void heightAdjust();
+}
+```
+
+```java
+package com.eliyet.yang.code.blog.blogsimplecode.extrenal;
+
+import android.util.Log;
+
+import com.eliyet.yang.code.blog.blogsimplecode.IExternalFrame;
+
+import static com.eliyet.yang.code.blog.blogsimplecode.Constant.LOG_TAG_ACTION;
+
+/**
+ * Created by eliyetyang on 17-3-14.
+ * 默认的外置架。
+ */
+
+public class DefaultFrame implements IExternalFrame {
+
+    @Override
+    public void lock() {
+        Log.i(LOG_TAG_ACTION,"外置架固定！");
+    }
+
+    @Override
+    public void move() {
+        Log.i(LOG_TAG_ACTION, "外置架活动。");
+    }
+
+    @Override
+    public void heightAdjust() {
+        Log.i(LOG_TAG_ACTION, "外置架高度调整。");
+    }
+}
+```
+
+```java
+package com.eliyet.yang.code.blog.blogsimplecode;
+
+import android.util.Log;
+
+import com.eliyet.yang.code.blog.blogsimplecode.extrenal.DefaultFrame;
+
+import static com.eliyet.yang.code.blog.blogsimplecode.Constant.LOG_TAG_ACTION;
+
+/**
+ * Created by eliyetyang on 17-3-14.
+ * 抽象的洗衣机基类
+ * 添加默认的外置架
+ */
+
+public abstract class ABaseWasher {
+    private Soak mSoak;
+    private IExternalFrame mFrame;
+
+    public ABaseWasher(Soak soak) {
+        this.mSoak = soak;
+        defaultInit();
+    }
+
+    public ABaseWasher() {
+        mSoak = new Soak();
+        defaultInit();
+    }
+
+    public void defaultInit() {
+        mFrame = new DefaultFrame();
+    }
+
+    public void soak() {
+        mSoak.soak();
+    }
+
+    public abstract void wash() ;
+
+    public void spinDry() {
+        Log.i(LOG_TAG_ACTION, "spin-drying");
+    }
+
+    public void move() {
+        mFrame.move();
+    }
+
+    public void lock() {
+        mFrame.lock();
+    }
+
+    public void heightAdjust() {
+        mFrame.heightAdjust();
+    }
+}
+```
 
