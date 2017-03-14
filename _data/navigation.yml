@@ -2,8 +2,8 @@
 main:
   - title: "所有博客"
     url: /all-posts/
-  - title: "设计与架构"
-    url: /architecture/
+#  - title: "设计与架构"
+#    url: /architecture/
   # - title: "About"
   #   url: https://mmistakes.github.io/minimal-mistakes/about/
   # - title: "Sample Posts"
