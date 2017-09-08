@@ -7,7 +7,7 @@
 
 # Site Settings
 theme: minimal-mistakes-jekyll
-locale                   : "zh-CN"
+locale                   : "en-US"
 title                    : "厚积薄发"
 title_separator          : "-"
 name                     : &eName "Eliyet"
