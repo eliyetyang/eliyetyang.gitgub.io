@@ -12,15 +12,14 @@ tags:
   
 ---
 
-#####
 >几个月前跟着 [Kotlin Koans](https://github.com/Kotlin/kotlin-koans) 了解了下 [Kotlin](https://kotlinlang.org/)
 但是并没有做笔记，今天再想象几乎忘光了，看来学习还是要留下点什么，今天决定再重文以便，留下此博文，也用于与大家交流。
 还没有下载demo的大家可以根据连接[下载](https://github.com/Kotlin/kotlin-koans)，也可以以直接通过[官方网站](https://kotlinlang.org/)进行学习与查阅。
 做Android的朋友，我建议demo使用[intelliJ](https://www.jetbrains.com/idea/download/#section=linux)打开。
 
-### 开始正题 下面开始逐个讲解
+## 开始正题 下面开始逐个讲解
 
-##### 0.HelloWorld
+### 0.HelloWorld
 
 这个项目的todo中，说明了整个项目的要点。
 
@@ -35,7 +34,7 @@ fun task0(): String {
     return "OK"
 }
 ```
-##### 1.JavaToKotlinConverter
+### 1.JavaToKotlinConverter
 
 这个是ide自动转换的练习，从.java文件中复制方法，然后粘贴到.kt中，编译器会提示是否要转换，
 这样ide就可以自动将java翻译为kotlin了，这个功能对java转kotlin是不是很有好～。下面让我们使用
@@ -58,7 +57,7 @@ fun task1(collection: Collection<Int>): String {
 }
 ```
 
-##### 2.NamedArguments
+### 2.NamedArguments
 
 ```kotlin
 // default values for arguments
