@@ -2,7 +2,7 @@
 title: "关于设计模式的基本原则(一)"
 categories:
   - architecture
-tab:
+tags:
   - design
   
 ---
