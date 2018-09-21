@@ -28,9 +28,10 @@ name = "Marcin"
 
 这样编译器会报错：
 
-```kotilin
+```kotlin
 var name = "Igor"
-name = 2 // name 的类型在前一句代码中已经识别为 String ，无法接受Int类型。
+name = 2
+// name 的类型在前一句代码中已经识别为 String ，无法接受Int类型。
 ```
 
 ### 2. 字符串模板（我这种交法不知对不对）
