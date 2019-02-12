@@ -234,7 +234,7 @@ tags:
 故其长度也与原数组相同。
 
 为保证合并后对左右数组的取值都是有序的，需要在每次合并完成后将缓存区数组进行回写，
-由于回写时在合并完成后，下次和并开始前进行，所以也不会影响排序合并过程中的取值问题。
+由于回写是在合并完成后，下次和并开始前进行，所以也不会影响排序合并过程中的取值问题。
 
 方法的返回值也变得不再必要，排序结束后，原数组即为生序数组。
 
@@ -243,7 +243,12 @@ tags:
 改进后的代码如下。
 
 ```java
-    public static int[] sort(int[] resArray) {
+    /**
+     * 归并排序方法.
+     * @param resArray 待排序数组.
+     * @return 有序数组.
+     */
+    public static int[] mergeSort(int[] resArray) {
         int[] tempArray = new int[resArray.length];
         int start = 0;
         int end = resArray.length;
@@ -254,6 +259,13 @@ tags:
         return resArray;
     }
 
+    /**
+     * 切分排序方法.
+     * @param resArray 待排序数组.
+     * @param mergeTempArray 合并缓存数组.
+     * @param startIndex 排序起始下标(含).
+     * @param endIndex 排序结束下标(不含).
+     */
     public static void sortArray(int[] resArray,
                                  int[] mergeTempArray,
                                  int startIndex,
@@ -287,6 +299,14 @@ tags:
 
     }
 
+    /**
+     * 排序与合并.
+     * @param resArray 待排序数组.
+     * @param mergeTempArray 合并缓存数组.
+     * @param startIndex 待合并起始下标.---左数组起始下标(含).
+     * @param midIndex 待合并中点下标.---左数组结束下标(不含);右数组开始下标(含).
+     * @param endIndex 待合并结束下标。---右数组结束下标(不含).
+     */
     public static void mergeArray(int[] resArray,
                                   int[] mergeTempArray,
                                   int startIndex,
@@ -337,61 +357,60 @@ tags:
 用例如下
 
 ```java
-
     @Test
     public void sortEmpty() {
         int[] resArray = {};
 
-        assertArrayEquals(new int[]{}, SortSecond.sort(resArray));
+        assertArrayEquals(new int[]{}, SortSecond.mergeSort(resArray));
     }
 
     @Test
     public void sortSingle() {
         int[] resArray = {1};
 
-        assertArrayEquals(new int[]{1}, SortSecond.sort(resArray));
+        assertArrayEquals(new int[]{1}, SortSecond.mergeSort(resArray));
     }
 
     @Test
     public void sortDescend() {
         int[] resArray = {9, 8, 7, 6, 5, 4, 3, 2, 1, 0};
 
-        assertArrayEquals(new int[]{0, 1, 2, 3, 4, 5, 6, 7, 8, 9}, SortSecond.sort(resArray));
+        assertArrayEquals(new int[]{0, 1, 2, 3, 4, 5, 6, 7, 8, 9}, SortSecond.mergeSort(resArray));
     }
 
     @Test
     public void sortAscend() {
         int[] resArray = {0, 1, 2, 3, 4, 5, 6, 7, 8, 9};
 
-        assertArrayEquals(new int[]{0, 1, 2, 3, 4, 5, 6, 7, 8, 9}, SortSecond.sort(resArray));
+        assertArrayEquals(new int[]{0, 1, 2, 3, 4, 5, 6, 7, 8, 9}, SortSecond.mergeSort(resArray));
     }
 
     @Test
     public void sortDescendOddLength() {
         int[] resArray = {9, 8, 7, 6, 5, 4, 3, 2, 1};
 
-        assertArrayEquals(new int[]{1, 2, 3, 4, 5, 6, 7, 8, 9}, SortSecond.sort(resArray));
+        assertArrayEquals(new int[]{1, 2, 3, 4, 5, 6, 7, 8, 9}, SortSecond.mergeSort(resArray));
     }
 
     @Test
     public void sortAscendOddLength() {
         int[] resArray = {0, 1, 2, 3, 4, 5, 6, 7, 8};
 
-        assertArrayEquals(new int[]{0, 1, 2, 3, 4, 5, 6, 7, 8}, SortSecond.sort(resArray));
+        assertArrayEquals(new int[]{0, 1, 2, 3, 4, 5, 6, 7, 8}, SortSecond.mergeSort(resArray));
     }
 
     @Test
     public void sortHasSameNumber() {
         int[] resArray = {0, 0, 22, 3, 5, 22, 0, 1, 90, 40, 60};
 
-        assertArrayEquals(new int[]{0, 0, 0, 1, 3, 5, 22, 22, 40, 60, 90}, SortSecond.sort(resArray));
+        assertArrayEquals(new int[]{0, 0, 0, 1, 3, 5, 22, 22, 40, 60, 90}, SortSecond.mergeSort(resArray));
     }
 
     @Test
     public void sortNormal() {
         int[] resArray = {5, 4, 9, 7, 3, 6, 2, 8, 1};
 
-        assertArrayEquals(new int[]{1, 2, 3, 4, 5, 6, 7, 8, 9}, SortSecond.sort(resArray));
+        assertArrayEquals(new int[]{1, 2, 3, 4, 5, 6, 7, 8, 9}, SortSecond.mergeSort(resArray));
     }
 ```
 
