@@ -60,13 +60,15 @@ tags:
 回顾思考过程，将方法抽象为切分/合并两个部分。
 
 ```java
+public class MergeSort{
     public static void splite(int[] resArray) {
-
+    
     }
-
+    
     public static int[] mergeArray(int[] leftArray, int[] rightArray) {
-
+    
     }
+}
 ```
 
 先为切分添加方法实现
@@ -76,6 +78,7 @@ tags:
 此情况下我决定偏向左数组，也就是左数组比右数组多1个元素。并用+1 /2 方式进行计算的平衡。
 
 ```java
+public class MergeSort{
     public static void splite(int[] resArray) {
         if (resArray.length <= 1) {//无需切分数组。
             return;
@@ -103,7 +106,8 @@ tags:
 
     public static int[] mergeArray(int[] leftArray, int[] rightArray) {
 
-    }
+    }    
+}
 ```
 
 切分过程完毕，之后就行将切分后的左右数组进行排序合并，发现并没有储存切分后的数组的变量，
@@ -111,6 +115,7 @@ tags:
 就是排序方法，返回值就是最后的有序数列，更改切分方法名称。
 
 ```java
+public class MergeSort{
     public static int[] sortArray(int[] resArray) {
         if (resArray.length <= 1) {//无需切分数组。
             return resArray;
@@ -141,13 +146,15 @@ tags:
 
     public static int[] mergeArray(int[] leftArray, int[] rightArray) {
 
-    }
+    }    
+}
 ```
 
 排序方法完成，为合并方法添加实现。合并的过程就是从左右两个数组中取值比较，再有序的放到
 结果数组中，当两数组其中一个取值完毕后，因左右两数组已经有序，将另一个数组顺次放到结果数组中即可。
 
 ```java
+public class MergeClass{
     public static int[] sortArray(int[] resArray) {
         if (resArray.length <= 1) {//无需切分数组。
             return resArray;
@@ -214,7 +221,8 @@ tags:
 
         //合并排序结束，返回结果。
         return mergedArray;
-    }
+    }    
+}
 ```
 打完收工，躺下睡觉～
 然而你看看这代码有多丑？你的良心就不会痛吗？还有心思睡觉。起来接着优化代码！！！
@@ -243,6 +251,7 @@ tags:
 改进后的代码如下。
 
 ```java
+public class MergeSort{
     /**
      * 归并排序方法.
      * @param resArray 待排序数组.
@@ -350,13 +359,15 @@ tags:
         for (int i = startIndex; i < endIndex; i++) {
             resArray[i] = mergeTempArray[i];
         }
-    }
+    }    
+}
 ```
 
 至此基本的归并排序方法完成。写几个用例跑一下看看效果。
 用例如下
 
 ```java
+public class MergeSort{
     @Test
     public void sortEmpty() {
         int[] resArray = {};
@@ -411,7 +422,8 @@ tags:
         int[] resArray = {5, 4, 9, 7, 3, 6, 2, 8, 1};
 
         assertArrayEquals(new int[]{1, 2, 3, 4, 5, 6, 7, 8, 9}, SortSecond.mergeSort(resArray));
-    }
+    }    
+}
 ```
 
 运行结果全部通过，美滋滋～
